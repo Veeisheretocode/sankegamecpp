@@ -191,6 +191,12 @@ void Logic()
         // if we hit wall game over
         if(x> width || x < 0 || y>height || y<0) gameOver = true;
 
+        //or if we hit wall we come out of opposite side
+        // if(x>=width) x= 0;
+        // else if(x<0) x = width-1;
+        // if(y>=height) x= 0;
+        // else if(y<0) x = height-1;
+
         //check if we hit ourselves and do gameover
         for(int i=0; i<nTail; i++){
             if(tailX[i]==x && tailY==y){
