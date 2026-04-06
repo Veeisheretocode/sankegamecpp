@@ -96,7 +96,24 @@ void Draw()
             if(i==y && j==x) std::cout<<"O";
             //prints fruit
             else if(i==fruitY && j==fruitX) std::cout<< "F";
-            else std::cout << " ";
+
+
+
+            else 
+            {
+                //draw the tail
+
+                bool printTail = false;
+                for(int k=0; k<nTail; k++){
+                    if(tailX[k] == j && tailY[k] == i) 
+                    {
+                    std::cout<<"o";
+                    printTail = true;
+                    }
+                }
+               if(!printTail) std::cout << " "; 
+            }
+        
 
             if(j==width-1) std::cout<<"#";
         }
@@ -141,7 +158,9 @@ void Logic()
     int prevX = tailX[0];
     int prevY = tailY[0];
     int prev2X, prev2Y;
-
+    tailX[0] = x; //tail needs to follow the head
+    tailY[0] = y;
+    
     for(int i = 1; i< nTail ; i++){
 
         prev2X = tailX[i]; //hold current position
