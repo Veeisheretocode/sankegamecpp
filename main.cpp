@@ -160,7 +160,7 @@ void Logic()
     int prev2X, prev2Y;
     tailX[0] = x; //tail needs to follow the head
     tailY[0] = y;
-    
+
     for(int i = 1; i< nTail ; i++){
 
         prev2X = tailX[i]; //hold current position
@@ -190,6 +190,14 @@ void Logic()
 
         // if we hit wall game over
         if(x> width || x < 0 || y>height || y<0) gameOver = true;
+
+        //check if we hit ourselves and do gameover
+        for(int i=0; i<nTail; i++){
+            if(tailX[i]==x && tailY==y){
+                gameOver = true;
+            }
+        }
+
 
         //eat fruit and inc score
         if(x==fruitX && y== fruitY){
